@@ -1,0 +1,39 @@
+//
+//  main.cpp
+//  CodeBlue
+//
+//  Created by Cuong Pham on 3/30/18.
+//  Copyright © 2018 Cuong Pham. All rights reserved.
+//
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+    int firstDig = 0, secondDig = 0, thirdDig = 0;
+    string allNumber[1000];
+    ofstream outputFile;
+    outputFile.open("output.csv");
+    
+    for (int i = 0; i <= 9; i++) {
+        for (int j = 0; j <= 9; j++) {
+            for (int k = 0; k <= 9; k++) {
+                if ((i%2 == 0 && j%2 == 0 && k%2 == 0) || (i%2 == 0 && j%2 == 1 && k%2 == 1) || (i%2 == 1 && j%2 == 0 && k%2 == 1) || (i%2 == 1 && j%2 == 1 && k%2 == 0)) {
+                    firstDig = i;
+                    secondDig = j;
+                    thirdDig = k;
+                    
+                    cout << 713 << "-000-0" << firstDig << secondDig << thirdDig << endl;
+                    outputFile << 713 << "-000-0" << firstDig << secondDig << thirdDig << endl;
+                }
+            }
+            
+        }
+    }
+    
+    outputFile.close();
+    
+    return 0;
+}
